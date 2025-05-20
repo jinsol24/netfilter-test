@@ -13,15 +13,6 @@ u_int32_t get_packet_id(struct nfq_data* tb) {
     return ph ? ntohl(ph->packet_id) : 0;
 }
 
-// 패킷 데이터를 16바이트 단위로 hex로 출력
-// void dump(unsigned char* buf, int size) {
-//     for (int i = 0; i < size; ++i) {
-//         if (i % 16 == 0) std::cout << std::endl;
-//         printf("%02X ", buf[i]);
-//     }
-//     std::cout << std::endl;
-// }
-
 // 패킷 데이터가 HTTP 요청인지 확인하고, 특정 호스트를 차단 대상인지 판단하는 함수
 bool is_http_packet(unsigned char* data, int size) {
     struct iphdr* iph = (struct iphdr*)data;
